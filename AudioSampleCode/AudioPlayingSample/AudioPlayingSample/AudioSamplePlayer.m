@@ -8,6 +8,8 @@
 
 #import "AudioSamplePlayer.h"
 
+#define kMaxConcurrentSources 32
+
 @implementation AudioSamplePlayer
 
 /*
@@ -16,19 +18,61 @@
 static ALCdevice *openALDevice;
 static ALCcontext *openALContext;
 
+static NSMutableArray *audioSampleSources;
+
 - (id)init
 {
     self = [super init];
     if(self)
     {
+        /*
+         [AudioSessionInitialize]
+         Initializes an iOS application's audio session object
+         1st parameter : run loop that interruption listener callback
+         2nd parameter : run loop that interruption listener function will run on
+         3rd parameter : interruption listener callback function. The application's audio session object invokes the callback when the session is interrupted and when the interruption ends
+         4th parameter : Data what you would like to be passed to your interruption listener callback
+         */
+        AudioSessionInitialize(NULL, NULL, AudioInterruptionListenerCallback, NULL);
+        
+        UInt32 session_category = kAudioSessionCategory_MediaPlayback;
+        
+        //Set the value of a specified audio session property
+        AudioSessionSetProperty(kAudioSessionProperty_AudioCategory, sizeof(session_category), &session_category);
+        
+        AudioSessionSetActive(true);
+        
         //Setting parameter NULL means that setting the default device
         openALDevice = alcOpenDevice(NULL);
         
         //Set up the context
         openALContext = alcCreateContext(openALDevice, NULL);
         alcMakeContextCurrent(openALContext);
+        
+        NSUInteger sourceID;
+        for(int i = 0; i < kMaxConcurrentSources; i++)
+        {
+            //Create a single OpenAL source
+            alGenSources(1, &sourceID);
+            //Add the source to the audioSampleSources Array
+            [audioSampleSources addObject:[NSNumber numberWithUnsignedInt:sourceID]];
+        }
     }
     return self;
+}
+
+void AudioInterruptionListenerCallback(void* user_data, UInt32 interruption_state)
+{
+    if(kAudioSessionBeginInterruption == interruption_state)    //what we do when our app is interrupted
+    {
+        alcMakeContextCurrent(NULL);
+    }
+    else if(kAudioSessionEndInterruption == interruption_state) //what we do when our app is relaunched
+    {
+        //When app is interrupted, Audio Session will automatically deactivated(No need to setActive false) so when the interrupted ended, we need to setactive true
+        AudioSessionSetActive(true);
+        alcMakeContextCurrent(openALContext);
+    }
 }
 
 - (void)playSound
