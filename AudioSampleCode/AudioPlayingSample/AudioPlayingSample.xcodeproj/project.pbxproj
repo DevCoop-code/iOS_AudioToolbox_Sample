@@ -15,6 +15,10 @@
 		78889643237988DF00749196 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78889641237988DF00749196 /* LaunchScreen.storyboard */; };
 		78889646237988DF00749196 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 78889645237988DF00749196 /* main.m */; };
 		78889650237988E000749196 /* AudioPlayingSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7888964F237988E000749196 /* AudioPlayingSampleTests.m */; };
+		7888965C23798CBD00749196 /* AudioSamplePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7888965B23798CBD00749196 /* AudioSamplePlayer.m */; };
+		7888965F23798CD700749196 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7888965E23798CD700749196 /* OpenAL.framework */; };
+		7888966123798CE300749196 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7888966023798CE300749196 /* AudioToolbox.framework */; };
+		78889663237B098E00749196 /* audioFile.caf in Resources */ = {isa = PBXBuildFile; fileRef = 78889662237B098E00749196 /* audioFile.caf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +47,11 @@
 		7888964B237988E000749196 /* AudioPlayingSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioPlayingSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7888964F237988E000749196 /* AudioPlayingSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioPlayingSampleTests.m; sourceTree = "<group>"; };
 		78889651237988E000749196 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7888965A23798CBD00749196 /* AudioSamplePlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioSamplePlayer.h; sourceTree = "<group>"; };
+		7888965B23798CBD00749196 /* AudioSamplePlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioSamplePlayer.m; sourceTree = "<group>"; };
+		7888965E23798CD700749196 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		7888966023798CE300749196 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		78889662237B098E00749196 /* audioFile.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = audioFile.caf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +59,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7888965F23798CD700749196 /* OpenAL.framework in Frameworks */,
+				7888966123798CE300749196 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +80,7 @@
 				78889632237988DC00749196 /* AudioPlayingSample */,
 				7888964E237988E000749196 /* AudioPlayingSampleTests */,
 				78889631237988DC00749196 /* Products */,
+				7888965D23798CD700749196 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,6 +96,7 @@
 		78889632237988DC00749196 /* AudioPlayingSample */ = {
 			isa = PBXGroup;
 			children = (
+				78889662237B098E00749196 /* audioFile.caf */,
 				78889633237988DC00749196 /* AppDelegate.h */,
 				78889634237988DC00749196 /* AppDelegate.m */,
 				78889636237988DC00749196 /* SceneDelegate.h */,
@@ -95,6 +108,8 @@
 				78889641237988DF00749196 /* LaunchScreen.storyboard */,
 				78889644237988DF00749196 /* Info.plist */,
 				78889645237988DF00749196 /* main.m */,
+				7888965A23798CBD00749196 /* AudioSamplePlayer.h */,
+				7888965B23798CBD00749196 /* AudioSamplePlayer.m */,
 			);
 			path = AudioPlayingSample;
 			sourceTree = "<group>";
@@ -106,6 +121,15 @@
 				78889651237988E000749196 /* Info.plist */,
 			);
 			path = AudioPlayingSampleTests;
+			sourceTree = "<group>";
+		};
+		7888965D23798CD700749196 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7888966023798CE300749196 /* AudioToolbox.framework */,
+				7888965E23798CD700749196 /* OpenAL.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +215,7 @@
 				78889643237988DF00749196 /* LaunchScreen.storyboard in Resources */,
 				78889640237988DF00749196 /* Assets.xcassets in Resources */,
 				7888963E237988DC00749196 /* Main.storyboard in Resources */,
+				78889663237B098E00749196 /* audioFile.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +235,7 @@
 			files = (
 				7888963B237988DC00749196 /* ViewController.m in Sources */,
 				78889635237988DC00749196 /* AppDelegate.m in Sources */,
+				7888965C23798CBD00749196 /* AudioSamplePlayer.m in Sources */,
 				78889646237988DF00749196 /* main.m in Sources */,
 				78889638237988DC00749196 /* SceneDelegate.m in Sources */,
 			);

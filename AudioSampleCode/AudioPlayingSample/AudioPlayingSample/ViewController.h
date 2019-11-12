@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "AudioSamplePlayer.h"
 @interface ViewController : UIViewController
 
+@property(nonatomic) AudioSamplePlayer* player;
 
 @end
 

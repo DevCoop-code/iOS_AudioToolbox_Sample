@@ -17,6 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.player = [[AudioSamplePlayer alloc]init];
+    [self.player playSound];
 }
 
 
