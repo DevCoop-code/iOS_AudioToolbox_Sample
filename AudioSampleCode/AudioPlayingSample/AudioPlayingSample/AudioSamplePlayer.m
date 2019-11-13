@@ -9,6 +9,7 @@
 #import "AudioSamplePlayer.h"
 
 #define kMaxConcurrentSources 32
+#define kMaxBuffers 256
 
 @implementation AudioSamplePlayer
 
@@ -19,6 +20,7 @@ static ALCdevice *openALDevice;
 static ALCcontext *openALContext;
 
 static NSMutableArray *audioSampleSources;
+static NSMutableDictionary *audioSampleBuffers; //To Store buffers so that we can provide a key and get the related buffer ID(key is the audio sample)
 
 - (id)init
 {
@@ -75,99 +77,140 @@ void AudioInterruptionListenerCallback(void* user_data, UInt32 interruption_stat
     }
 }
 
-- (void)playSound
+- (void)preloadAudioSample:(NSString *)sampleName
 {
-    //Source is something that produces sound, like a speaker
-    //To play a sound, need to specify a source to play it through
-    NSUInteger sourceID;
-    alGenSources(1, &sourceID);
-    
-    NSString *audioFilePath = [[NSBundle mainBundle]pathForResource:@"audioFile" ofType:@"caf"];
-    NSURL *audioFileURL = [NSURL fileURLWithPath:audioFilePath];
-    
-    /*
-     [AudioFileOpenURL]
-     1st parameter : the URL of an existing audio file
-     2nd parameter : The read-write permissions you want to assign to the file. Use the permission constants in AudioFilePermissions
-     3rd parameter : A hint for the file type of the designated file, For files without filename extensions and with types not easily or uniquely determined from the data(such as ADTS or AC3)
-     4th parameter : output, pointer to the newly opened audio file
-     
-     Audio File Services uses an AudioFileID to reference an audio file. AudioFileOpenURL will open the audio sample and place the data into AudioFileID variable.
-     */
-    AudioFileID afid;
-    OSStatus openAudioFileResult = AudioFileOpenURL((__bridge CFURLRef)audioFileURL, kAudioFileReadPermission, 0, &afid);
-    
-    if(0 != openAudioFileResult)
+    if([audioSampleBuffers objectForKey:sampleName])
     {
-        NSLog(@"An error occured when attempting to open the audio file %@: %ld", audioFilePath, openAudioFileResult);
+        return;
+    }
+    if([audioSampleBuffers count] > kMaxBuffers)
+    {
+        NSLog(@"Warning: You are trying to create more than 256 buffers! This is not allowed now");
         return;
     }
     
-    UInt64 audioDataByteCount = 0;
-    UInt32 propertySize = sizeof(audioDataByteCount);
-    /*
-     [AudioFileGetProperty]
-     Gets the value of an audio file property
-     1st parameter : The audio file you want to obtain a property value from
-     2nd parameter : The property whose value you want(https://developer.apple.com/documentation/audiotoolbox/1576499-audio_file_properties?language=objc)
-     3rd parameter : output the number of bytes written to the buffer
-     4th parameter : output the value of the property specified in 3rd parameter
-     */
-    //AudioFileGetProperty will query the audio file and extract the property we are searching for the audio data
-    //kAudioFilePropertyAudioDataByteCount : Indicates the number of bytes of audio data in the designated file.
-    OSStatus getSizeResult = AudioFileGetProperty(afid, kAudioFilePropertyAudioDataByteCount, &propertySize, &audioDataByteCount);
-    if(0 != getSizeResult)
-    {
-        NSLog(@"An error occured when attempting to determine the size of audio file %@: %ld", audioFilePath, getSizeResult);
-    }
+    NSString *audioFilePath = [[NSBundle mainBundle]pathForResource:sampleName ofType:@"caf"];
     
-    UInt32 bytesRead = (UInt32)audioDataByteCount;
+    AudioFileID afid = [self openAudioFile:audioFilePath];
+    UInt32 audioFileSizeInBytes = [self getSizeOfAudioComponent:afid];
     
-    void *audioData = malloc(bytesRead);
-    /*
-     [AudioFileReadBytes]
-     Reads bytes of audio data from an audio file
-     1st parameter : The audio file whose bytes of audio data you want to read
-     2nd parameter : True => Cache the Data
-     3rd parameter : byte offset of the audio data you want to be returned
-     4th parameter : Input => pointer to the number of bytes to read / Output => pointer to the number of bytes actually read
-     5th parameter : pointer to user-allocated memory large enough for the requested bytes
-     */
-    OSStatus readBytesResult = AudioFileReadBytes(afid, false, 0, &bytesRead, audioData);
+    void *audioData = malloc(audioFileSizeInBytes);
+    
+    OSStatus readBytesResult = AudioFileReadBytes(afid, false, 0, &audioFileSizeInBytes, audioData);
+    
     if(0 != readBytesResult)
     {
         NSLog(@"An error occured when attempting to read data from audio file %@: %ld", audioFilePath, readBytesResult);
     }
+    
     AudioFileClose(afid);
     
     ALuint outputBuffer;
     alGenBuffers(1, &outputBuffer);
     
-    /*
-     [alBufferData]
-     This function fills a buffer with audio data.
-     1st parameter : Buffer name to be filled with data
-     2nd parameter : format type(AL_FORMAT_MONO8, AL_FORMAT_MONO16, AL_FORMAT_STEREO8, AL_FORMAT_STEREO16)
-     3rd parameter : pointer to the audio data
-     4th parameter : the size of the audio data in bytes
-     5th parameter : frequency of the audio data
-     */
-    alBufferData(outputBuffer, AL_FORMAT_STEREO16, audioData, bytesRead, 44100);
+    alBufferData(outputBuffer, AL_FORMAT_STEREO16, audioData, audioFileSizeInBytes, 44100);
+    
+    [audioSampleBuffers setObject:[NSNumber numberWithInt:outputBuffer] forKey:sampleName];
+    
     if(audioData)
     {
         free(audioData);
         audioData = NULL;
     }
-    
-    //Set some parameters
-    alSourcef(sourceID, AL_PITCH, 1.0f);
-    alSourcef(sourceID, AL_GAIN, 1.0f);
-    
-    //Attach the buffer
-    alSourcei(sourceID, AL_BUFFER, outputBuffer);
-    
-    //Passing in our sourceID to play our audio sample
-    alSourcePlay(sourceID);
 }
 
+/*
+ Takes a file path as a string, opens the audio sample and returns the AudioFileID
+ */
+- (AudioFileID)openAudioFile:(NSString *)audioFilePathAsString
+{
+    NSURL *audioFileURL = [NSURL fileURLWithPath:audioFilePathAsString];
+    
+    AudioFileID afid;
+    OSStatus openAudioFileResult = AudioFileOpenURL((__bridge CFURLRef)audioFileURL, kAudioFileReadPermission, 0, &afid);
+    if(0 != openAudioFileResult)
+    {
+        NSLog(@"An error occured when attempting to open the audio file %@: %ld", audioFilePathAsString, openAudioFileResult);
+    }
+    return afid;
+}
+
+/*
+ Takes an AudioFileID and returns the size of the audio data as a UInt32
+ */
+- (UInt32)getSizeOfAudioComponent:(AudioFileID)afid
+{
+    UInt64 audioDataSize = 0;
+    UInt32 propertySize = sizeof(UInt64);
+    
+    OSStatus getSizeResult = AudioFileGetProperty(afid, kAudioFilePropertyAudioDataByteCount, &propertySize, &audioDataSize);
+    if(0 != getSizeResult)
+    {
+        NSLog(@"An error occured when attempting to determine the size of audio file");
+    }
+    return (UInt32)audioDataSize;
+}
+
+/*
+ Attach a buffer to a sound source
+ Play the audio Sample
+ */
+- (void)playAudioSample:(NSString *)sampleName
+{
+    ALuint source = [self getNextAvailableSource];
+    
+    alSourcef(source, AL_PITCH, 1.0f);
+    alSourcef(source, AL_GAIN, 1.0f);
+    
+    ALuint outputBuffer = (ALuint)[[audioSampleBuffers objectForKey:sampleName] intValue];
+    
+    alSourcei(source, AL_BUFFER, outputBuffer);
+    
+    alSourcePlay(source);
+}
+
+- (ALuint)getNextAvailableSource
+{
+    ALint sourceState;
+    for(NSNumber *sourceID in audioSampleSources)
+    {
+        alGetSourcei([sourceID unsignedIntValue], AL_SOURCE_STATE, &sourceState);
+        if(sourceState != AL_PLAYING)
+        {
+            return [sourceID unsignedIntValue];
+        }
+    }
+    
+    ALuint sourceID = [[audioSampleSources objectAtIndex:0] unsignedIntegerValue];
+    alSourceStop(sourceID);
+    
+    return sourceID;
+}
+
+/*
+ Clean up and shutdown OpenAL
+ */
+- (void)shutdownAudioSamplePlayer
+{
+    ALint source;
+    for(NSNumber *sourceValue in audioSampleSources)
+    {
+        NSUInteger sourceID = [sourceValue unsignedIntValue];
+        alGetSourcei(sourceID, AL_SOURCE_STATE, &source);
+        alSourceStop(sourceID);
+        alDeleteSources(1, &sourceID);
+    }
+    [audioSampleSources removeAllObjects];
+    
+    NSArray *bufferIDs = [audioSampleBuffers allValues];
+    for(NSNumber *bufferValue in bufferIDs)
+    {
+        NSUInteger bufferID = [bufferValue unsignedIntValue];
+        alDeleteBuffers(1, &bufferID);
+    }
+    [audioSampleBuffers removeAllObjects];
+    
+    alcDestroyContext(openALContext);
+    alcCloseDevice(openALDevice);
+}
 @end
