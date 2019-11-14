@@ -7,53 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		781CADD3237D1227009CEBBE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 781CADD2237D1227009CEBBE /* AppDelegate.m */; };
-		781CADD6237D1227009CEBBE /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 781CADD5237D1227009CEBBE /* SceneDelegate.m */; };
-		781CADD9237D1227009CEBBE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 781CADD8237D1227009CEBBE /* ViewController.m */; };
-		781CADDC237D1227009CEBBE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 781CADDA237D1227009CEBBE /* Main.storyboard */; };
-		781CADDE237D1229009CEBBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 781CADDD237D1229009CEBBE /* Assets.xcassets */; };
-		781CADE1237D1229009CEBBE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 781CADDF237D1229009CEBBE /* LaunchScreen.storyboard */; };
-		781CADE4237D1229009CEBBE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 781CADE3237D1229009CEBBE /* main.m */; };
-		781CADEE237D1229009CEBBE /* AVAudioEngineSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 781CADED237D1229009CEBBE /* AVAudioEngineSampleTests.m */; };
+		788DB4CB237D12D500286A9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DB4CA237D12D500286A9D /* AppDelegate.swift */; };
+		788DB4CD237D12D500286A9D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DB4CC237D12D500286A9D /* SceneDelegate.swift */; };
+		788DB4CF237D12D500286A9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DB4CE237D12D500286A9D /* ViewController.swift */; };
+		788DB4D2237D12D500286A9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 788DB4D0237D12D500286A9D /* Main.storyboard */; };
+		788DB4D4237D12D600286A9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 788DB4D3237D12D600286A9D /* Assets.xcassets */; };
+		788DB4D7237D12D600286A9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 788DB4D5237D12D600286A9D /* LaunchScreen.storyboard */; };
+		788DB4E2237D12D600286A9D /* AVAudioEngineSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DB4E1237D12D600286A9D /* AVAudioEngineSampleTests.swift */; };
+		788DB4ED237D55CD00286A9D /* SimpsonMovie.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 788DB4EC237D55CD00286A9D /* SimpsonMovie.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		781CADEA237D1229009CEBBE /* PBXContainerItemProxy */ = {
+		788DB4DE237D12D600286A9D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 781CADC6237D1227009CEBBE /* Project object */;
+			containerPortal = 788DB4BF237D12D500286A9D /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 781CADCD237D1227009CEBBE;
+			remoteGlobalIDString = 788DB4C6237D12D500286A9D;
 			remoteInfo = AVAudioEngineSample;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		781CADCE237D1227009CEBBE /* AVAudioEngineSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AVAudioEngineSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		781CADD1237D1227009CEBBE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		781CADD2237D1227009CEBBE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		781CADD4237D1227009CEBBE /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
-		781CADD5237D1227009CEBBE /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		781CADD7237D1227009CEBBE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		781CADD8237D1227009CEBBE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		781CADDB237D1227009CEBBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		781CADDD237D1229009CEBBE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		781CADE0237D1229009CEBBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		781CADE2237D1229009CEBBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		781CADE3237D1229009CEBBE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		781CADE9237D1229009CEBBE /* AVAudioEngineSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AVAudioEngineSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		781CADED237D1229009CEBBE /* AVAudioEngineSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVAudioEngineSampleTests.m; sourceTree = "<group>"; };
-		781CADEF237D1229009CEBBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		788DB4C7237D12D500286A9D /* AVAudioEngineSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AVAudioEngineSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		788DB4CA237D12D500286A9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		788DB4CC237D12D500286A9D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		788DB4CE237D12D500286A9D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		788DB4D1237D12D500286A9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		788DB4D3237D12D600286A9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		788DB4D6237D12D600286A9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		788DB4D8237D12D600286A9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		788DB4DD237D12D600286A9D /* AVAudioEngineSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AVAudioEngineSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		788DB4E1237D12D600286A9D /* AVAudioEngineSampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAudioEngineSampleTests.swift; sourceTree = "<group>"; };
+		788DB4E3237D12D600286A9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		788DB4EC237D55CD00286A9D /* SimpsonMovie.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpsonMovie.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		781CADCB237D1227009CEBBE /* Frameworks */ = {
+		788DB4C4237D12D500286A9D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		781CADE6237D1229009CEBBE /* Frameworks */ = {
+		788DB4DA237D12D600286A9D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -63,47 +60,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		781CADC5237D1227009CEBBE = {
+		788DB4BE237D12D500286A9D = {
 			isa = PBXGroup;
 			children = (
-				781CADD0237D1227009CEBBE /* AVAudioEngineSample */,
-				781CADEC237D1229009CEBBE /* AVAudioEngineSampleTests */,
-				781CADCF237D1227009CEBBE /* Products */,
+				788DB4C9237D12D500286A9D /* AVAudioEngineSample */,
+				788DB4E0237D12D600286A9D /* AVAudioEngineSampleTests */,
+				788DB4C8237D12D500286A9D /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		781CADCF237D1227009CEBBE /* Products */ = {
+		788DB4C8237D12D500286A9D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				781CADCE237D1227009CEBBE /* AVAudioEngineSample.app */,
-				781CADE9237D1229009CEBBE /* AVAudioEngineSampleTests.xctest */,
+				788DB4C7237D12D500286A9D /* AVAudioEngineSample.app */,
+				788DB4DD237D12D600286A9D /* AVAudioEngineSampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		781CADD0237D1227009CEBBE /* AVAudioEngineSample */ = {
+		788DB4C9237D12D500286A9D /* AVAudioEngineSample */ = {
 			isa = PBXGroup;
 			children = (
-				781CADD1237D1227009CEBBE /* AppDelegate.h */,
-				781CADD2237D1227009CEBBE /* AppDelegate.m */,
-				781CADD4237D1227009CEBBE /* SceneDelegate.h */,
-				781CADD5237D1227009CEBBE /* SceneDelegate.m */,
-				781CADD7237D1227009CEBBE /* ViewController.h */,
-				781CADD8237D1227009CEBBE /* ViewController.m */,
-				781CADDA237D1227009CEBBE /* Main.storyboard */,
-				781CADDD237D1229009CEBBE /* Assets.xcassets */,
-				781CADDF237D1229009CEBBE /* LaunchScreen.storyboard */,
-				781CADE2237D1229009CEBBE /* Info.plist */,
-				781CADE3237D1229009CEBBE /* main.m */,
+				788DB4EC237D55CD00286A9D /* SimpsonMovie.mp4 */,
+				788DB4CA237D12D500286A9D /* AppDelegate.swift */,
+				788DB4CC237D12D500286A9D /* SceneDelegate.swift */,
+				788DB4CE237D12D500286A9D /* ViewController.swift */,
+				788DB4D0237D12D500286A9D /* Main.storyboard */,
+				788DB4D3237D12D600286A9D /* Assets.xcassets */,
+				788DB4D5237D12D600286A9D /* LaunchScreen.storyboard */,
+				788DB4D8237D12D600286A9D /* Info.plist */,
 			);
 			path = AVAudioEngineSample;
 			sourceTree = "<group>";
 		};
-		781CADEC237D1229009CEBBE /* AVAudioEngineSampleTests */ = {
+		788DB4E0237D12D600286A9D /* AVAudioEngineSampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				781CADED237D1229009CEBBE /* AVAudioEngineSampleTests.m */,
-				781CADEF237D1229009CEBBE /* Info.plist */,
+				788DB4E1237D12D600286A9D /* AVAudioEngineSampleTests.swift */,
+				788DB4E3237D12D600286A9D /* Info.plist */,
 			);
 			path = AVAudioEngineSampleTests;
 			sourceTree = "<group>";
@@ -111,13 +105,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		781CADCD237D1227009CEBBE /* AVAudioEngineSample */ = {
+		788DB4C6237D12D500286A9D /* AVAudioEngineSample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 781CADF2237D1229009CEBBE /* Build configuration list for PBXNativeTarget "AVAudioEngineSample" */;
+			buildConfigurationList = 788DB4E6237D12D600286A9D /* Build configuration list for PBXNativeTarget "AVAudioEngineSample" */;
 			buildPhases = (
-				781CADCA237D1227009CEBBE /* Sources */,
-				781CADCB237D1227009CEBBE /* Frameworks */,
-				781CADCC237D1227009CEBBE /* Resources */,
+				788DB4C3237D12D500286A9D /* Sources */,
+				788DB4C4237D12D500286A9D /* Frameworks */,
+				788DB4C5237D12D500286A9D /* Resources */,
 			);
 			buildRules = (
 			);
@@ -125,46 +119,47 @@
 			);
 			name = AVAudioEngineSample;
 			productName = AVAudioEngineSample;
-			productReference = 781CADCE237D1227009CEBBE /* AVAudioEngineSample.app */;
+			productReference = 788DB4C7237D12D500286A9D /* AVAudioEngineSample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		781CADE8237D1229009CEBBE /* AVAudioEngineSampleTests */ = {
+		788DB4DC237D12D600286A9D /* AVAudioEngineSampleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 781CADF5237D1229009CEBBE /* Build configuration list for PBXNativeTarget "AVAudioEngineSampleTests" */;
+			buildConfigurationList = 788DB4E9237D12D600286A9D /* Build configuration list for PBXNativeTarget "AVAudioEngineSampleTests" */;
 			buildPhases = (
-				781CADE5237D1229009CEBBE /* Sources */,
-				781CADE6237D1229009CEBBE /* Frameworks */,
-				781CADE7237D1229009CEBBE /* Resources */,
+				788DB4D9237D12D600286A9D /* Sources */,
+				788DB4DA237D12D600286A9D /* Frameworks */,
+				788DB4DB237D12D600286A9D /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				781CADEB237D1229009CEBBE /* PBXTargetDependency */,
+				788DB4DF237D12D600286A9D /* PBXTargetDependency */,
 			);
 			name = AVAudioEngineSampleTests;
 			productName = AVAudioEngineSampleTests;
-			productReference = 781CADE9237D1229009CEBBE /* AVAudioEngineSampleTests.xctest */;
+			productReference = 788DB4DD237D12D600286A9D /* AVAudioEngineSampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		781CADC6237D1227009CEBBE /* Project object */ = {
+		788DB4BF237D12D500286A9D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = HanGyoJeong;
 				TargetAttributes = {
-					781CADCD237D1227009CEBBE = {
+					788DB4C6237D12D500286A9D = {
 						CreatedOnToolsVersion = 11.0;
 					};
-					781CADE8237D1229009CEBBE = {
+					788DB4DC237D12D600286A9D = {
 						CreatedOnToolsVersion = 11.0;
-						TestTargetID = 781CADCD237D1227009CEBBE;
+						TestTargetID = 788DB4C6237D12D500286A9D;
 					};
 				};
 			};
-			buildConfigurationList = 781CADC9237D1227009CEBBE /* Build configuration list for PBXProject "AVAudioEngineSample" */;
+			buildConfigurationList = 788DB4C2237D12D500286A9D /* Build configuration list for PBXProject "AVAudioEngineSample" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -172,29 +167,30 @@
 				en,
 				Base,
 			);
-			mainGroup = 781CADC5237D1227009CEBBE;
-			productRefGroup = 781CADCF237D1227009CEBBE /* Products */;
+			mainGroup = 788DB4BE237D12D500286A9D;
+			productRefGroup = 788DB4C8237D12D500286A9D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				781CADCD237D1227009CEBBE /* AVAudioEngineSample */,
-				781CADE8237D1229009CEBBE /* AVAudioEngineSampleTests */,
+				788DB4C6237D12D500286A9D /* AVAudioEngineSample */,
+				788DB4DC237D12D600286A9D /* AVAudioEngineSampleTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		781CADCC237D1227009CEBBE /* Resources */ = {
+		788DB4C5237D12D500286A9D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				781CADE1237D1229009CEBBE /* LaunchScreen.storyboard in Resources */,
-				781CADDE237D1229009CEBBE /* Assets.xcassets in Resources */,
-				781CADDC237D1227009CEBBE /* Main.storyboard in Resources */,
+				788DB4ED237D55CD00286A9D /* SimpsonMovie.mp4 in Resources */,
+				788DB4D7237D12D600286A9D /* LaunchScreen.storyboard in Resources */,
+				788DB4D4237D12D600286A9D /* Assets.xcassets in Resources */,
+				788DB4D2237D12D500286A9D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		781CADE7237D1229009CEBBE /* Resources */ = {
+		788DB4DB237D12D600286A9D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -204,48 +200,47 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		781CADCA237D1227009CEBBE /* Sources */ = {
+		788DB4C3237D12D500286A9D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				781CADD9237D1227009CEBBE /* ViewController.m in Sources */,
-				781CADD3237D1227009CEBBE /* AppDelegate.m in Sources */,
-				781CADE4237D1229009CEBBE /* main.m in Sources */,
-				781CADD6237D1227009CEBBE /* SceneDelegate.m in Sources */,
+				788DB4CF237D12D500286A9D /* ViewController.swift in Sources */,
+				788DB4CB237D12D500286A9D /* AppDelegate.swift in Sources */,
+				788DB4CD237D12D500286A9D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		781CADE5237D1229009CEBBE /* Sources */ = {
+		788DB4D9237D12D600286A9D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				781CADEE237D1229009CEBBE /* AVAudioEngineSampleTests.m in Sources */,
+				788DB4E2237D12D600286A9D /* AVAudioEngineSampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		781CADEB237D1229009CEBBE /* PBXTargetDependency */ = {
+		788DB4DF237D12D600286A9D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 781CADCD237D1227009CEBBE /* AVAudioEngineSample */;
-			targetProxy = 781CADEA237D1229009CEBBE /* PBXContainerItemProxy */;
+			target = 788DB4C6237D12D500286A9D /* AVAudioEngineSample */;
+			targetProxy = 788DB4DE237D12D600286A9D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		781CADDA237D1227009CEBBE /* Main.storyboard */ = {
+		788DB4D0237D12D500286A9D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				781CADDB237D1227009CEBBE /* Base */,
+				788DB4D1237D12D500286A9D /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		781CADDF237D1229009CEBBE /* LaunchScreen.storyboard */ = {
+		788DB4D5237D12D600286A9D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				781CADE0237D1229009CEBBE /* Base */,
+				788DB4D6237D12D600286A9D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -253,7 +248,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		781CADF0237D1229009CEBBE /* Debug */ = {
+		788DB4E4237D12D600286A9D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -308,10 +303,12 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		781CADF1237D1229009CEBBE /* Release */ = {
+		788DB4E5237D12D600286A9D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -359,11 +356,13 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		781CADF3237D1229009CEBBE /* Debug */ = {
+		788DB4E7237D12D600286A9D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -376,11 +375,12 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = kr.hangyojeong.AVAudioEngineSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		781CADF4237D1229009CEBBE /* Release */ = {
+		788DB4E8237D12D600286A9D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -393,13 +393,15 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = kr.hangyojeong.AVAudioEngineSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
-		781CADF6237D1229009CEBBE /* Debug */ = {
+		788DB4EA237D12D600286A9D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KYV3CSY2F3;
@@ -412,14 +414,16 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = kr.hangyojeong.AVAudioEngineSampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AVAudioEngineSample.app/AVAudioEngineSample";
 			};
 			name = Debug;
 		};
-		781CADF7237D1229009CEBBE /* Release */ = {
+		788DB4EB237D12D600286A9D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KYV3CSY2F3;
@@ -432,6 +436,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = kr.hangyojeong.AVAudioEngineSampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AVAudioEngineSample.app/AVAudioEngineSample";
 			};
@@ -440,34 +445,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		781CADC9237D1227009CEBBE /* Build configuration list for PBXProject "AVAudioEngineSample" */ = {
+		788DB4C2237D12D500286A9D /* Build configuration list for PBXProject "AVAudioEngineSample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				781CADF0237D1229009CEBBE /* Debug */,
-				781CADF1237D1229009CEBBE /* Release */,
+				788DB4E4237D12D600286A9D /* Debug */,
+				788DB4E5237D12D600286A9D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		781CADF2237D1229009CEBBE /* Build configuration list for PBXNativeTarget "AVAudioEngineSample" */ = {
+		788DB4E6237D12D600286A9D /* Build configuration list for PBXNativeTarget "AVAudioEngineSample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				781CADF3237D1229009CEBBE /* Debug */,
-				781CADF4237D1229009CEBBE /* Release */,
+				788DB4E7237D12D600286A9D /* Debug */,
+				788DB4E8237D12D600286A9D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		781CADF5237D1229009CEBBE /* Build configuration list for PBXNativeTarget "AVAudioEngineSampleTests" */ = {
+		788DB4E9237D12D600286A9D /* Build configuration list for PBXNativeTarget "AVAudioEngineSampleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				781CADF6237D1229009CEBBE /* Debug */,
-				781CADF7237D1229009CEBBE /* Release */,
+				788DB4EA237D12D600286A9D /* Debug */,
+				788DB4EB237D12D600286A9D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 781CADC6237D1227009CEBBE /* Project object */;
+	rootObject = 788DB4BF237D12D500286A9D /* Project object */;
 }

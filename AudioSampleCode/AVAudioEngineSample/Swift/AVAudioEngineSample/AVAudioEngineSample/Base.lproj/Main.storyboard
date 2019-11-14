@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="landscape" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AVAudioEngineSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MainScreen" translatesAutoresizingMaskIntoConstraints="NO" id="oZw-1x-9Uu">
+                                <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                            </imageView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="7" translatesAutoresizingMaskIntoConstraints="NO" id="f8K-sl-OMf" userLabel="RateSlider">
+                                <rect key="frame" x="0.0" y="348" width="898" height="30"/>
+                                <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oba-91-vVP" userLabel="StartButton">
+                                <rect key="frame" x="399" y="157" width="100" height="100"/>
+                                <state key="normal" image="icons8-play-64">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
+                                </state>
+                                <connections>
+                                    <action selector="playTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yKK-YY-Tnq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jjJ-3b-URf" userLabel="ForwardButton">
+                                <rect key="frame" x="548" y="167" width="80" height="80"/>
+                                <state key="normal" image="icons8-forward-10-80"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NrU-pU-cSI" userLabel="BackwardButton">
+                                <rect key="frame" x="270" y="167" width="80" height="80"/>
+                                <state key="normal" image="icons8-replay-10-80"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DvV-Sh-3b0" userLabel="CountUpLabel">
+                                <rect key="frame" x="282" y="270" width="56" height="24"/>
+                                <fontDescription key="fontDescription" name="JCHEadA" family="HeadLineA" pointSize="20"/>
+                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bh-QS-tWi" userLabel="CountDownLabel">
+                                <rect key="frame" x="560" y="270" width="56" height="24"/>
+                                <fontDescription key="fontDescription" name="JCHEadA" family="HeadLineA" pointSize="20"/>
+                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6tf-01-1GX" userLabel="rateLabel">
+                                <rect key="frame" x="388" y="295" width="121" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Label">
+                                        <attributes>
+                                            <color key="NSColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="37" name="JCHEadA"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="f8K-sl-OMf" firstAttribute="top" secondItem="DvV-Sh-3b0" secondAttribute="bottom" constant="54" id="0R0-BQ-Kzx"/>
+                            <constraint firstItem="oZw-1x-9Uu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="1cf-gf-B0N"/>
+                            <constraint firstItem="oZw-1x-9Uu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-60" id="2Hm-y8-X3i"/>
+                            <constraint firstItem="Oba-91-vVP" firstAttribute="leading" secondItem="NrU-pU-cSI" secondAttribute="trailing" constant="49" id="EyF-ZY-gb4"/>
+                            <constraint firstItem="NrU-pU-cSI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="226" id="H7w-bv-0Ye"/>
+                            <constraint firstItem="jjJ-3b-URf" firstAttribute="leading" secondItem="Oba-91-vVP" secondAttribute="trailing" constant="49" id="Nu9-T6-SXx"/>
+                            <constraint firstItem="DvV-Sh-3b0" firstAttribute="baseline" secondItem="6bh-QS-tWi" secondAttribute="baseline" id="PhZ-br-ZFg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jjJ-3b-URf" secondAttribute="trailing" constant="224" id="RRY-H3-mdq"/>
+                            <constraint firstItem="DvV-Sh-3b0" firstAttribute="top" secondItem="NrU-pU-cSI" secondAttribute="bottom" constant="23" id="WF7-24-4Ov"/>
+                            <constraint firstItem="jjJ-3b-URf" firstAttribute="centerX" secondItem="6bh-QS-tWi" secondAttribute="centerX" id="YTG-8v-8EI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6bh-QS-tWi" secondAttribute="trailing" constant="236" id="Ych-V6-IbF"/>
+                            <constraint firstItem="NrU-pU-cSI" firstAttribute="top" secondItem="jjJ-3b-URf" secondAttribute="top" id="Yhk-em-bF7"/>
+                            <constraint firstItem="DvV-Sh-3b0" firstAttribute="firstBaseline" secondItem="6bh-QS-tWi" secondAttribute="firstBaseline" id="ZwJ-ed-A41"/>
+                            <constraint firstItem="oZw-1x-9Uu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="aSK-yZ-Bi2"/>
+                            <constraint firstItem="oZw-1x-9Uu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aYo-5D-eSE"/>
+                            <constraint firstItem="Oba-91-vVP" firstAttribute="centerX" secondItem="f8K-sl-OMf" secondAttribute="centerX" id="adP-Nc-gHT"/>
+                            <constraint firstItem="oZw-1x-9Uu" firstAttribute="trailing" secondItem="f8K-sl-OMf" secondAttribute="trailing" id="dIs-hV-ODG"/>
+                            <constraint firstItem="oZw-1x-9Uu" firstAttribute="centerY" secondItem="NrU-pU-cSI" secondAttribute="centerY" id="djl-fa-dwH"/>
+                            <constraint firstItem="DvV-Sh-3b0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="238" id="hmH-uk-999"/>
+                            <constraint firstItem="NrU-pU-cSI" firstAttribute="centerY" secondItem="Oba-91-vVP" secondAttribute="centerY" id="qng-RR-9x4"/>
+                            <constraint firstItem="Oba-91-vVP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="157" id="siA-Jb-A8m"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="f8K-sl-OMf" secondAttribute="bottom" constant="16" id="v5N-aR-PO8"/>
+                            <constraint firstItem="NrU-pU-cSI" firstAttribute="centerX" secondItem="DvV-Sh-3b0" secondAttribute="centerX" id="vqF-xI-XWb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="countDownLabel" destination="6bh-QS-tWi" id="c7I-aA-Ju6"/>
+                        <outlet property="countUpLabel" destination="DvV-Sh-3b0" id="1U9-bu-ZY6"/>
+                        <outlet property="playPauseButton" destination="Oba-91-vVP" id="O2f-gM-Dzg"/>
+                        <outlet property="rateLabel" destination="6tf-01-1GX" id="go3-Yj-RgZ"/>
+                        <outlet property="rateSlider" destination="f8K-sl-OMf" id="zoy-aw-aW2"/>
+                        <outlet property="skipBackwardButton" destination="NrU-pU-cSI" id="IWb-OW-Gp9"/>
+                        <outlet property="skipForwardButton" destination="jjJ-3b-URf" id="wLf-0i-eSc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.60714285714286" y="65.217391304347828"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="MainScreen" width="1129" height="648"/>
+        <image name="icons8-forward-10-80" width="80" height="80"/>
+        <image name="icons8-play-64" width="64" height="64"/>
+        <image name="icons8-replay-10-80" width="80" height="80"/>
+    </resources>
+</document>
