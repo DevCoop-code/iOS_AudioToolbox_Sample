@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var countUpLabel: UILabel!
     @IBOutlet weak var countDownLabel: UILabel!
     @IBOutlet weak var rateLabel: UILabel!
+    @IBOutlet weak var progressBar: UIProgressView!
     
     //MARK: AVAudio Properties
     var engine = AVAudioEngine()
@@ -62,9 +63,16 @@ class ViewController: UIViewController {
         }
     }
     var updater: CADisplayLink?
-    var currentFrame: AVAudioFramePosition = 0
+    var currentFrame: AVAudioFramePosition{
+        guard let lastRenderTime = player.lastRenderTime, let playerTime = player.nodeTime(forPlayerTime: lastRenderTime) else{
+            return 0
+        }
+        
+        return playerTime.sampleTime
+    }
     var skipFrame: AVAudioFramePosition = 0
     var currentPosition: AVAudioFramePosition = 0
+    let minDb: Float = -80.0
     
     enum TimeConstant {
         static let secsPerMin = 60
@@ -79,6 +87,9 @@ class ViewController: UIViewController {
         countDownLabel.text = formatted(time: audioLengthSeconds)
         setupAudio()
 
+        updater = CADisplayLink(target: self, selector: #selector(updateUI))
+        updater?.add(to: .current, forMode: .default)   //Registers the display link with a run loop.
+        updater?.isPaused = true
     }
 }
 
@@ -90,13 +101,37 @@ extension ViewController{
         
         //
         if player.isPlaying{    //Whether or not player is playing
+            disconnectVolumeTap()
+            updater?.isPaused = true
             player.pause()
         }else{
             if needsFileScheduled{
                 needsFileScheduled = false
                 scheduleAudioFile()
             }
+            connectVolumeTap()
+            updater?.isPaused = false
             player.play()
+        }
+    }
+    
+    @objc func updateUI(){
+        print("updateUI");
+        //skipFrame is an offset added to or subtracted from currentFrame
+        currentPosition = currentFrame + skipFrame
+        currentPosition = max(currentPosition, 0)
+        currentPosition = min(currentPosition, audioLengthSamples)
+        
+        progressBar.progress = Float(currentPosition) / Float(audioLengthSamples)
+        let time = Float(currentPosition) / audioSampleRate
+        countUpLabel.text = formatted(time: time)
+        countDownLabel.text = formatted(time: audioLengthSeconds - time)
+        
+        if currentPosition >= audioLengthSamples{
+            player.stop()                       //Stop the player
+            updater?.isPaused = true            //Pause the timer
+            playPauseButton.isSelected = false  //Reset the playPause selection state
+            disconnectVolumeTap()               //Disconnect volume tap
         }
     }
 }
@@ -175,14 +210,80 @@ extension ViewController{
     }
     
     func connectVolumeTap(){
+        /*
+         [mainMixerNode]
+         Audio engine's optional singleton main mixer node
+         */
+        //1
+        let format = engine.mainMixerNode.outputFormat(forBus: 0)
         
+        /*
+         [installTap]
+         Installs an audio tap on the bus to record, monitor, and observe the output of the node
+         1st: The node output bus to which to attach the tap
+         2nd: requested size of the incoming buffers
+         3rd: format
+         4th: Block(receives copies of the output of an AVAudioNode) to be called with audio buffers
+            (AVAudioPCMBuffer, AVAudioTime)
+                1st: buffer parameter is a buffer of audio captured from the output of an AVAudioNode
+                2nd: time the buffer was captured
+         */
+        //2
+        engine.mainMixerNode.installTap(onBus: 0, bufferSize: 1024, format: format) { (buffer, when) in
+            //3
+            guard
+            let channelData = buffer.floatChannelData,
+            let updater = self.updater
+                else{
+                    return
+            }
+            
+            let channelDataValue = channelData.pointee
+            //4
+            let channelDataValueArray = stride(from: 0,
+                                               to: Int(buffer.frameLength),
+                                               by: buffer.stride).map { channelDataValue[$0] }
+
+            //5
+            let leftOper = channelDataValueArray.map{ $0 * $0 }.reduce(0, +)
+            let rightOper = Float(buffer.frameLength)
+            let rms = sqrt(leftOper / rightOper)
+            
+            //6
+            let avgPower = 20 * log10(rms)
+            
+            //7
+            let meterLevel = self.scaledPower(power: avgPower)
+            
+        }
     }
     
     func disconnectVolumeTap(){
-        
+        engine.mainMixerNode.removeTap(onBus: 0)
     }
     
     func seek(to time: Float){
         
+    }
+    
+    /*
+     Compute the average power on a 1k buffer of audio samples
+     Common way to determine the average power of a buffer of audio samples is to
+     calculate the Root Mean Square(RMS)
+     */
+    func scaledPower(power: Float) -> Float{
+        //Check to make sure power is a valid value
+        guard power.isFinite else { return 0.0 }
+        
+        //Sets the dynamic range of vuMeter(Volume Unit Meter)
+        if power < minDb{
+            return 0.0
+        }
+        else if power >= 1.0{
+            return 1.0
+        }
+        else{
+            return (abs(minDb) - abs(power)) / abs(minDb)
+        }
     }
 }

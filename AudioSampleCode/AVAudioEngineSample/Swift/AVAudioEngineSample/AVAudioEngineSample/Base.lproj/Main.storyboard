@@ -65,6 +65,11 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rpv-rm-ywC">
+                                <rect key="frame" x="282" y="109" width="346" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -98,6 +103,7 @@
                         <outlet property="countDownLabel" destination="6bh-QS-tWi" id="c7I-aA-Ju6"/>
                         <outlet property="countUpLabel" destination="DvV-Sh-3b0" id="1U9-bu-ZY6"/>
                         <outlet property="playPauseButton" destination="Oba-91-vVP" id="O2f-gM-Dzg"/>
+                        <outlet property="progressBar" destination="rpv-rm-ywC" id="a9h-pR-6z7"/>
                         <outlet property="rateLabel" destination="6tf-01-1GX" id="go3-Yj-RgZ"/>
                         <outlet property="rateSlider" destination="f8K-sl-OMf" id="zoy-aw-aW2"/>
                         <outlet property="skipBackwardButton" destination="NrU-pU-cSI" id="IWb-OW-Gp9"/>
