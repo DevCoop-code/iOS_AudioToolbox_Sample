@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		78533CC9239B89B700E7F325 /* MP3_Sample.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 78533CC8239B89B700E7F325 /* MP3_Sample.mp3 */; };
 		788DB4CB237D12D500286A9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DB4CA237D12D500286A9D /* AppDelegate.swift */; };
 		788DB4CD237D12D500286A9D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DB4CC237D12D500286A9D /* SceneDelegate.swift */; };
 		788DB4CF237D12D500286A9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DB4CE237D12D500286A9D /* ViewController.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		78533CC8239B89B700E7F325 /* MP3_Sample.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = MP3_Sample.mp3; path = ../../../../../AVAudioEngine/AVAudioEngineSample/AVAudioEngineSample/Resources/MP3_Sample.mp3; sourceTree = "<group>"; };
 		788DB4C7237D12D500286A9D /* AVAudioEngineSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AVAudioEngineSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		788DB4CA237D12D500286A9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		788DB4CC237D12D500286A9D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				788DB4EC237D55CD00286A9D /* SimpsonMovie.mp4 */,
+				78533CC8239B89B700E7F325 /* MP3_Sample.mp3 */,
 				788DB4CA237D12D500286A9D /* AppDelegate.swift */,
 				788DB4CC237D12D500286A9D /* SceneDelegate.swift */,
 				788DB4CE237D12D500286A9D /* ViewController.swift */,
@@ -183,6 +186,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78533CC9239B89B700E7F325 /* MP3_Sample.mp3 in Resources */,
 				788DB4ED237D55CD00286A9D /* SimpsonMovie.mp4 in Resources */,
 				788DB4D7237D12D600286A9D /* LaunchScreen.storyboard in Resources */,
 				788DB4D4237D12D600286A9D /* Assets.xcassets in Resources */,

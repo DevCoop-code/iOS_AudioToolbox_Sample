@@ -145,7 +145,7 @@ extension ViewController{
 //MARK: - Audio
 extension ViewController{
     func setupAudio() -> Void {
-        audioFileURL = Bundle.main.url(forResource: "SimpsonMovie", withExtension: "mp4")
+        audioFileURL = Bundle.main.url(forResource: "MP3_Sample", withExtension: "mp3")
         
         //Attach the player node to the engine, which you must do before connecting other nodes
         engine.attach(player);
