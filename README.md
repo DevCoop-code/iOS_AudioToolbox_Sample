@@ -21,3 +21,18 @@ Below is table about iOS Audio playback formats and codecs<br>
 - <b>AVAudioEngine</b> is part of AVFoundation
 <br>
 <img src="./imgData/AudioFramework.png" width="100%" height="300">
+
+
+## How to test sample project
+
+Each sample projects don’t contain test video files due to file's copyright   
+
+Proceed as follows steps
+
+1. Add your audio files into each sample projects
+   
+2. change some codes for video file name and extension into ViewController.swift
+   1. ex) audioFileURL = Bundle.main.url(forResource: "SimpsonMovie", withExtension: "mp4") 
+   
+3. Run and Play
+
